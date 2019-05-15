@@ -1,6 +1,6 @@
 // pages/movies/grid-movie/grid-movie.js
 Page({
-
+  
   /**
    * 页面的初始数据
    */

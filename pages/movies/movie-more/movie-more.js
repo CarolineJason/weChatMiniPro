@@ -121,5 +121,4 @@ Page({
     http(nextUrl, this.processMovieData)
     wx.showNavigationBarLoading();
   },
-
 });
