@@ -11,7 +11,7 @@ Page({
     top250: {}, // 热播榜
     searchResult: {}, // 查询结果
     containerShow: true,
-    searchPanelShow: false,
+    searchPanelShow: false
   },
 
   /**
@@ -54,6 +54,7 @@ Page({
         if (item.title.length > 6) {
           item.title = item.title.slice(0, 6) + "..."
         }
+        // console.log('item:', item);
 
         const temp = {
           stars: coverageStar(item.rating.stars),
@@ -100,16 +101,25 @@ Page({
     this.setData({
       containerShow: true,
       searchPanelShow: false,
-      searchResult: {},
+      searchResult: {}
     })
   },
 
   // 搜索
   onBindChange(e) {
     const host = app.globalData.doubanBase
-    const value = e.detail.value;
+    const value = e.detail.value
     const searchUrl = `${host}/v2/movie/search?q=${value}`
     this.getMoviesList(searchUrl, "searchResult", "")
     console.log(this.data)
+  },
+
+  // movie 详情
+  movieDetailTap(event) {
+    const movieId = event.currentTarget.dataset.movieid
+    console.log("movieId:", movieId)
+    wx.navigateTo({
+      url: `./movie-detail/movie-detail?movieId=${movieId}`
+    })
   }
 })

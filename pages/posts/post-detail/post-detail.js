@@ -48,7 +48,7 @@ Page({
 
   //  全局监听 music 的模仿状态，并且同步 播放的图标
   onMusicMointor(){
-    wx.onBackgroundAudioPlay(() => {
+    wx.onBackgroundAudioPlay(() => {  // 监听音乐 播放 改变播放图标， 设置播放当前歌曲的id
       this.setData({
         isPlayingMusic: true,
       });
@@ -56,13 +56,22 @@ Page({
       app.globalData.g_isMusicPostId = postId;
     });
 
-    wx.onBackgroundAudioPause(() => {
+    wx.onBackgroundAudioPause(() => { // 监听音乐 暂停 改变播放图标， 设置播放当前歌曲的id为null
       this.setData({
         isPlayingMusic: false,
       });
       app.globalData.g_isPlayingMusic = false;
       app.globalData.g_isMusicPostId = null;
     });
+
+    wx.onBackgroundAudiotop(() => {
+      // 监听音乐 播放完成 改变播放图标， 设置播放当前歌曲的id为null
+      this.setData({
+        isPlayingMusic: false
+      })
+      app.globalData.g_isPlayingMusic = false
+      app.globalData.g_isMusicPostId = null
+    })
   },
 
   // 收藏

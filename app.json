@@ -9,7 +9,8 @@
     "pages/movies/movie/movie-template",
     "pages/movies/movie-list/movie-list-template",
     "pages/movies/movie-more/movie-more",
-    "pages/movies/grid-movie/grid-movie"
+    "pages/movies/grid-movie/grid-movie",
+    "pages/movies/movie-detail/movie-detail"
   ],
   "window": {
     "navigationBarBackgroundColor": "#405f80"
