@@ -53,7 +53,8 @@ Page({
         isPlayingMusic: true,
       });
       app.globalData.g_isPlayingMusic = true;
-      app.globalData.g_isMusicPostId = postId;
+      // app.globalData.g_isMusicPostId = postId
+      app.globalData.g_isMusicPostId = this.data.currentId;
     });
 
     wx.onBackgroundAudioPause(() => { // 监听音乐 暂停 改变播放图标， 设置播放当前歌曲的id为null
@@ -64,7 +65,7 @@ Page({
       app.globalData.g_isMusicPostId = null;
     });
 
-    wx.onBackgroundAudiotop(() => {
+    wx.onBackgroundAudioStop(() => {
       // 监听音乐 播放完成 改变播放图标， 设置播放当前歌曲的id为null
       this.setData({
         isPlayingMusic: false

@@ -10,7 +10,7 @@ export default class Movie {
     this.url = url;
   }
 
-  getMovieData(cb) {
+  getMovieData = (cb) => {
     this.cb = cb;
     http(this.url, this.processMovieData);
   }
@@ -51,7 +51,8 @@ export default class Movie {
       castsInfo: convertToCastInfos(data.casts),
       summary: data.summary
     }
-    console.log('movie=======>:', movie);
+    console.log("movie=======>:", movie)
+    console.log('this=======>:', this);
     this.cb(movie);
   }
 }
